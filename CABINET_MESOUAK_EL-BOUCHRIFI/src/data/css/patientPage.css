@@ -1,0 +1,31 @@
+h2{
+    text-decoration: underline;
+    font-family: serif;
+}
+h3{
+    text-decoration: underline;
+    font-family: serif;
+}
+div{
+    text-decoration: underline;
+    font-weight: bold;
+    font-family: serif;
+}
+q{
+    font-family: Georgia, serif;
+}
+table {
+    border: 1px solid;
+    table-layout: fixed;
+    width: 70%;
+    border: 1px solid red;
+}
+td {
+    font-family: Georgia, serif;
+    text-align: center;
+    background-color: aquamarine;
+    color: white;
+}
+tr {
+    background-color:MediumSeaGreen;
+}

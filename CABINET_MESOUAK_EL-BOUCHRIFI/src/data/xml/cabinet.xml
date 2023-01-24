@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/XML/XMLDocument.xml to edit this template
+-->
+
+
+<!-- Racine : Cabinet -->
+<cab:cabinet
+    xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+    xmlns:cab='http://www.ujf-grenoble.fr/l3miage/medical'
+    xmlns:pat='http://www.ujf-grenoble.fr/l3miage/medical/patient'
+    xsi:schemaLocation='http://www.ujf-grenoble.fr/l3miage/medical ../xsd/cabinet.xsd
+   http://www.ujf-grenoble.fr/l3miage/medical/patient ../xsd/patient.xsd'>
+    
+    <!--Nom de Cabinet-->
+    <cab:nom>Soins à Grenoble</cab:nom>
+    
+    <!--Adresse de Cabinet-->
+    <cab:adresse>
+        <cab:numéro>60</cab:numéro>
+        <cab:rue>rue de la Chimie</cab:rue>
+        <cab:codePostal>38041</cab:codePostal>
+        <cab:ville>Grenoble</cab:ville>
+    </cab:adresse>
+    
+    <!--Liste des Infirmiers-->
+    <cab:infirmiers>
+        
+        <!--Infirmier 001-->
+        <cab:infirmier id="001">
+            <cab:nom>Fréchie</cab:nom>
+            <cab:prénom>Sarah</cab:prénom>
+            <cab:photo>sarah.png</cab:photo>
+        </cab:infirmier>
+        
+        <!--Infirmier 002-->
+        <cab:infirmier id="002">
+            <cab:nom>Stické</cab:nom>
+            <cab:prénom>Sophie</cab:prénom>
+            <cab:photo>sophie.jpg</cab:photo>
+        </cab:infirmier>
+        
+        <!--Infirmier 003-->
+        <cab:infirmier id="003">
+            <cab:nom>Ochon</cab:nom>
+            <cab:prénom>Paul</cab:prénom>
+            <cab:photo>paul.png</cab:photo>
+        </cab:infirmier>
+        
+    </cab:infirmiers>
+    
+    <!--Liste des Patiens-->
+    <cab:patients>
+                
+        <cab:patient>
+            <!-- Homme, né en août 98 en France,
+            à Marseille (n°55 en bouche du rhône)
+                458e naissance
+                        -->
+            <pat:nom>Alécole</pat:nom>
+            <pat:prénom>Yvon</pat:prénom>
+            <pat:sexe>M</pat:sexe>
+            <pat:naissance>1998-08-22</pat:naissance>
+            <pat:numéro>198082205545852</pat:numéro>
+            <pat:adresse>
+                <pat:étage>6</pat:étage>
+                <pat:numéro>50</pat:numéro>
+                <pat:rue>avenue Félix Viallet</pat:rue>
+                <pat:ville>Grenoble</pat:ville>
+                <pat:codePostal>38031</pat:codePostal>
+            </pat:adresse>
+            <pat:visite date="2015-12-08" intervenant="001">
+                <pat:acte id="109"></pat:acte>
+            </pat:visite>
+        </cab:patient>
+               
+        <cab:patient>
+            <!-- Femme née le 08 mars 82 en France, 
+                à Lyon (n° 23 dans le rhône),
+                        52e naissance 
+                            --> 
+            <pat:nom>Orouge</pat:nom>
+            <pat:prénom>Elvire</pat:prénom>
+            <pat:sexe>F</pat:sexe>
+            <pat:naissance>1982-03-08</pat:naissance>
+            <pat:numéro>282036902305218</pat:numéro>
+            <pat:adresse>
+                <pat:rue>Rond-Point de la Croix de Vie</pat:rue>
+                <pat:ville>La Tronche</pat:ville>
+                <pat:codePostal>38700</pat:codePostal>
+            </pat:adresse>
+            <pat:visite date="2015-12-08">
+                <pat:acte id="300"></pat:acte>
+            </pat:visite>
+        </cab:patient>
+        
+        <cab:patient>
+            <!-- Femme née le 25 mars 75 en France, 
+                à Chambery (n° 65 dans la Savoie),
+                        692e naissance 
+                            -->
+            <pat:nom>Pien</pat:nom>
+            <pat:prénom>Oscare</pat:prénom>
+            <pat:sexe>F</pat:sexe>
+            <pat:naissance>1975-03-25</pat:naissance>
+            <pat:numéro>275037306569296</pat:numéro>
+            <pat:adresse>
+                <pat:rue>rue Casimir Brenier</pat:rue>
+                <pat:ville>Grenoble</pat:ville>
+                <pat:codePostal>38000</pat:codePostal>
+            </pat:adresse>
+            <pat:visite date="2015-12-08">
+                <pat:acte id="101"></pat:acte>
+                <pat:acte id="104"></pat:acte>
+            </pat:visite>
+        </cab:patient>
+        
+        <cab:patient>
+            <!-- Petit garçon né le 02 aout 2011 en France, 
+                à Bordeaux (n° 63 dans la Gironde),
+                        35e naissance 
+                            -->
+            <pat:nom>Kapoëtla</pat:nom>
+            <pat:prénom>Xavier</pat:prénom>
+            <pat:sexe>M</pat:sexe>
+            <pat:naissance>2011-08-02</pat:naissance>
+            <pat:numéro>111083306303521</pat:numéro>
+            <pat:adresse>
+                <pat:numéro>25</pat:numéro>
+                <pat:rue>rue Rue de Martyrs</pat:rue>
+                <pat:ville>Grenoble</pat:ville>
+                <pat:codePostal>38042</pat:codePostal>
+            </pat:adresse>
+            <pat:visite date="2015-12-08">
+                <pat:acte id="111"></pat:acte>
+            </pat:visite>
+        </cab:patient>
+        
+    </cab:patients>
+
+</cab:cabinet>
+

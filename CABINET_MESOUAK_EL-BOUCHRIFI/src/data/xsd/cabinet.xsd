@@ -1,0 +1,113 @@
+<?xml version="1.0"?>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/XML/XmlSchema.xsd to edit this template
+-->
+
+<xs:schema version="1.0"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:cab="http://www.ujf-grenoble.fr/l3miage/medical"
+           xmlns:pat="http://www.ujf-grenoble.fr/l3miage/medical/patient"
+           targetNamespace="http://www.ujf-grenoble.fr/l3miage/medical"
+           elementFormDefault="qualified">
+    <xs:import schemaLocation="patient.xsd" namespace="http://www.ujf-grenoble.fr/l3miage/medical/patient"/>
+    
+    <!-- Racine : Cabinet -->
+    <xs:element name="cabinet" type="cab:Cabinet">
+        <xs:keyref name="idExist" refer="cab:infIdUnique">
+            <xs:selector xpath="cab:patients/cab:patient/pat:visite"/>
+            <xs:field xpath="@intervenant"/>
+        </xs:keyref>
+    </xs:element>
+    
+    
+    <!-- TYPE complexe: Cabinet --> 
+    <xs:complexType name="Cabinet">
+        <xs:sequence>
+            <xs:element name="nom" type="xs:string"/>
+            <xs:element name="adresse" type ="cab:Adresse"/>
+            <xs:element name="infirmiers" type ="cab:Infirmiers">
+                <xs:unique name = "infIdUnique">
+                    <xs:selector xpath="cab:infirmier" />
+                    <xs:field xpath="@id"/>
+                </xs:unique>
+            </xs:element>
+            <xs:element name="patients" type ="cab:Patients"/>
+        </xs:sequence>
+    </xs:complexType>
+        
+        
+    <!-- Type complexe: Adresse -->
+    <xs:complexType  name="Adresse">
+        <xs:sequence> 
+            <xs:element name="numéro" type="xs:string" minOccurs="0"/>
+            <xs:element name="rue" type="xs:string"/>
+            <xs:element name="codePostal" type="cab:CodePostal"/>
+            <xs:element name="ville" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+   
+   <!-- Type complexe: Code postal -->
+   <xs:simpleType name="CodePostal">
+        <xs:restriction base="xs:int">
+            <xs:pattern value="[0-9]{5}" /> <!-- le code postal est exactement à 5 chiffres -->
+        </xs:restriction>
+    </xs:simpleType>
+             
+    <!-- Type complexe: Infirmiers --> 
+    <xs:complexType  name="Infirmiers">
+        <xs:sequence>
+            <xs:element name="infirmier" type="cab:Infirmier" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType> 
+        
+        
+    <!-- Type complexe: Infirmier--> 
+    <xs:complexType name="Infirmier">
+        <xs:sequence>
+            <xs:element name="nom" type="xs:string"/>
+            <xs:element name="prénom" type="xs:string"/>
+            <xs:element name="photo" type="xs:string"/>          
+        </xs:sequence>  
+        <xs:attribute name="id" type="xs:string"/>
+    </xs:complexType>   
+        
+        
+    <!-- Type complexe: Patients-->       
+    <xs:complexType name="Patients">
+        <xs:sequence>
+            <xs:element name="patient" type="pat:Patient" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>   
+        
+        
+    <!-- Type complexe: Patient-->                                   
+    <xs:complexType  name="Patient">
+        <xs:sequence>
+            <xs:element name="nom" type="xs:string"/>
+            <xs:element name="prénom" type="xs:string"/>
+            <xs:element name="sexe" type="xs:string"/>
+            <xs:element name="naissance" type="xs:date"/>
+            <xs:element name="numéro" type="xs:string"/>
+            <xs:element name="adresse" type="cab:Adresse"/>
+            <xs:element name="visite" type="cab:Visite"/>
+        </xs:sequence>   
+    </xs:complexType>
+        
+           
+    <!-- Type complexe: Visite -->   
+    <xs:complexType name="Visite" >
+        <xs:sequence>
+            <xs:element name="acte" type="pat:Acte" maxOccurs="unbounded"/> 
+        </xs:sequence>
+        <xs:attribute name="date" type="xs:date"/>
+        <xs:attribute name="intervenant" type="xs:string" use="optional"/>
+    </xs:complexType>
+    
+       
+    <!-- Type complexe:Acte --> 
+    <xs:complexType name="Acte">
+        <xs:attribute name="id" type="xs:int"/>
+    </xs:complexType>
+   
+</xs:schema>

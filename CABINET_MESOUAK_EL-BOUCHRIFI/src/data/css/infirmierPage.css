@@ -1,0 +1,12 @@
+table {
+    border: 1px solid;
+    table-layout: fixed;
+    width: 70%;
+    border: 1px solid red;
+}
+td {
+    font-family: Georgia, serif;
+    text-align: center;
+    background-color: aquamarine;
+    color: black;
+}

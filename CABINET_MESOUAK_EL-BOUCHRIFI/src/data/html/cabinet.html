@@ -1,0 +1,81 @@
+<html xmlns:act="http://www.ujf-grenoble.fr/l3miage/actes" xmlns:pat="http://www.ujf-grenoble.fr/l3miage/medical/patient" xmlns:cab="http://www.ujf-grenoble.fr/l3miage/medical">
+    <head>
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>cabinet.xsl</title>
+        <link rel="stylesheet" type="text/css" href="../css/style.css">
+        <script type="text/javascript">
+                    
+                        function openFacture(prenom, nom, actes) 
+                        {
+                            var width  = 500;
+                            var height = 300;
+                            if(window.innerWidth) {
+                                var left = (window.innerWidth-width)/2;
+                                var top = (window.innerHeight-height)/2;
+                            }
+                            else {
+                                var left = (document.body.clientWidth-width)/2;
+                                var top = (document.body.clientHeight-height)/2;
+                            }
+                            var factureWindow = window.open('','facture','menubar=yes, scrollbars=yes, top='+top+', left='+left+', width='+width+', height='+height+'');
+                            factureText = "Facture pour : " + prenom + " " + nom;
+                            factureWindow.document.write(factureText);
+                         }
+                    
+                </script>
+    </head>
+    <body>
+        <p>Bonjour
+                    Sarah , </p>
+        <p> Aujourd'hui , vous avez  
+                    1
+                    patients .
+                </p>
+        <p>
+            <table border="1">
+                <tr>
+                    <td>Nom du patient :</td>
+                </tr>
+                <tr>
+                    <td>Al&eacute;cole</td>
+                </tr>
+            </table>
+            <br>
+            <table border="1">
+                <tr>
+                    <td>L'adresse du patient : </td>
+                </tr>
+                <tr>
+                    <td>
+                    &eacute;tage n&deg;6,
+                     50 avenue F&eacute;lix Viallet,
+                     Grenoble,
+                     38031. 
+                </td>
+                </tr>
+            </table>
+            <br>
+            <br>
+            <table border="1">
+                <tr>
+                    <td>Soin demand&eacute;:</td>
+                </tr>
+                <tr>
+                    <td> Injection sous-cutan&eacute;e. </td>
+                </tr>
+            </table>
+            <br>
+            <br>
+            <button type="Submit" value="Facture" onclick="
+                openFacture('Yvon',
+                'Al&eacute;cole',
+                '')
+            ">
+            Facture</button>
+            <br>
+            <br>
+            <br>
+        </p>
+        <br>
+    </body>
+</html>

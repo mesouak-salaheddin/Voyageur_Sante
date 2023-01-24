@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?><patient xmlns:act="http://www.ujf-grenoble.fr/l3miage/actes" xmlns:pat="http://www.ujf-grenoble.fr/l3miage/medical/patient" xmlns:cab="http://www.ujf-grenoble.fr/l3miage/medical">
+    <nom>Alécole</nom>
+    <prénom>Yvon</prénom>
+    <sexe>M</sexe>
+    <naissance>1998-08-22</naissance>
+    <numéroSS>198082205545852</numéroSS>
+    <adresse>
+        <étage>6</étage>
+        <numéro>50</numéro>
+        <rue>avenue Félix Viallet</rue>
+        <codePostal>38031</codePostal>
+        <ville>Grenoble</ville>
+    </adresse>
+    <visite date="2015-12-08">
+        <intervenant>
+            <nom>Fréchie</nom>
+            <prénom>Sarah</prénom>
+        </intervenant>
+        <acte> Injection sous-cutanée. </acte>
+    </visite>
+</patient>

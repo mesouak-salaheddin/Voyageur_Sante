@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/XML/XmlSchema.xsd to edit this template
+-->
+
+<xs:schema version="1.0"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:pat="http://www.ujf-grenoble.fr/l3miage/medical/patient"
+           targetNamespace="http://www.ujf-grenoble.fr/l3miage/medical/patient"
+           elementFormDefault="qualified">
+    
+    <!-- Racine : Patients -->
+    <xs:element name="patients" type="pat:Patients"/>
+    
+    
+    <!-- Type complexe: Patients-->       
+    <xs:complexType name="Patients">
+        <xs:sequence>
+            <xs:element name="patient" type="pat:Patient" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>   
+        
+        
+    <!-- Type complexe: Patient-->                                   
+    <xs:complexType name="Patient">
+        <xs:sequence>
+            <xs:element name="nom" type="xs:string"/>
+            <xs:element name="prénom" type="xs:string"/>
+            <xs:element name="sexe" type="xs:string"/>
+            <xs:element name="naissance" type="xs:date"/>
+            <xs:element name="numéro" type="xs:string"/>
+            <xs:element name="adresse" type="pat:Adresse"/>
+            <xs:element name="visite" type="pat:Visite"/>
+        </xs:sequence>   
+    </xs:complexType>
+    
+    
+    <!-- Type complexe: Adresse -->
+    <xs:complexType  name="Adresse">
+        <xs:sequence>
+            <xs:element name="étage" type="xs:string" minOccurs="0"/> 
+            <xs:element name="numéro" type="xs:string" minOccurs="0"/>
+            <xs:element name="rue" type="xs:string"/>
+            <xs:element name="ville" type="xs:string"/>
+            <xs:element name="codePostal" type="xs:int"/>
+        </xs:sequence>
+    </xs:complexType>
+        
+           
+    <!-- Type complexe: Visite -->   
+    <xs:complexType name="Visite" >
+        <xs:sequence>
+            <xs:element name="acte" type="pat:Acte" maxOccurs="unbounded"/> 
+        </xs:sequence>
+        <xs:attribute name="date" type="xs:date"/>
+        <xs:attribute name="intervenant" type="xs:string" use="optional"/>
+    </xs:complexType>
+    
+       
+    <!-- Type complexe:Acte --> 
+    <xs:complexType name="Acte">
+        <xs:attribute name="id" type="xs:int"/>
+    </xs:complexType>
+   
+
+</xs:schema>
